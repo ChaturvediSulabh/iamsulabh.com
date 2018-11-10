@@ -1,0 +1,13 @@
+env:
+  BUILD_ARTIFACT_BUCKET: iamsulabhbuild.com
+steps:
+  - command: 
+      - "npm start"
+      - "npm run build"
+      - "zip -r build-$BUILDKITE_BUILD_NUMBER.zip dist/ server.js"
+      - "aws s3 cp ./build-$BUILDKITE_BUILD_NUMBER.zip   s3://$BUILD_ARTIFACT_BUCKET/artifacts/$APP_STACK_NAME-$BUILDKITE_BUILD_NUMBER.zip"
+    plugins:
+      - docker#v2.0.0:
+          image: "node:7"
+          always-pull: true
+          volumes: false
