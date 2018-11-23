@@ -1,0 +1,33 @@
+language: node_js  # Manadatory Tag, setting it to None any default language specific processing
+node_js:
+  - 7.0.0
+branches:
+  only:
+    - master
+env:
+  global:
+    - secure: eigkfQorwbF1NO9Wet586dpiV+jpSQC/IKxTnyFTFOatCVCXLYBPxfjoEqD7Oy8GsBoW47VBLBezum4Dx2bXFtqQ6/H46i+T/PzWKTDKF1CocEGe90O18aqjW7md5Et8jyXeJVpFzV4BaCkzeaDSGjj/uWMl9FC8QxYUXLHW4kKmAkAmf07cWmbpSDos9lRKJZlrWZZvk9GetBj/o5O+PgwAArMauOV4lGBeTQv8d2Z+G+2OsMrzI3cUVpZRKx4xle/Uy6UhOfEGx9DMmapR63V+FU3Zs4ChVpUC96QBW0G80N2DUoSMkxgrwd8YYr69Jiys+F7gsDsX5ZXrDExzJw==
+    - BUILD_ARTIFACT_BUCKET: iamsulabhbuild.com
+build:
+  pre_ci:
+    - echo "Starting the build"
+  ci:
+    - npm start
+    - npm run build
+    - zip -r build-$SHIPPABLE_BUILD_NUMBER.zip dist/ server.js
+  on_sucess:
+    - aws s3 cp ./build-$SHIPPABLE_BUILD_NUMBER.zip "s3://$BUILD_ARTIFACT_BUCKET/artifacts/$APP_STACK_NAME-$SHIPPABLE_BUILD_NUMBER.zip"
+  post_ci:
+    - ""
+integrations:
+  notifications:
+    - integrationName: email
+      type: email
+      recipients:
+        - sulabh.chaturvedi@outlook.com
+        - sulabhchaturvedi08@gmail.com
+      on_success: change
+      on_failure: always
+      on_cancel: never
+      on_start: never
+      on_pull_request: always
