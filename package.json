@@ -1,0 +1,25 @@
+{
+  "name": "iamsulabh.com",
+  "version": "1.0.0",
+  "description": "Sulabh Chaturvedi Portfolio Website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChaturvediSulabh/iamsulabh.com.git"
+  },
+  "keywords": [
+    "node",
+    "react",
+    "aws",
+    "lambda"
+  ],
+  "author": "Sulabh Chaturvedi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ChaturvediSulabh/iamsulabh.com/issues"
+  },
+  "homepage": "https://github.com/ChaturvediSulabh/iamsulabh.com#readme"
+}
