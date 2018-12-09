@@ -15,8 +15,9 @@ build:
   pre_ci:
     - echo "Starting the build"
   ci:
-    - portfolio/npm run webpack
-    - zip -r build-$SHIPPABLE_BUILD_NUMBER.zip portfolio/dist/bundle.js
+    - cd portfolio
+    - npm run webpack
+    - zip -r build-$SHIPPABLE_BUILD_NUMBER.zip dist/bundle.js
   on_sucess:
     - aws s3 cp ./build-$SHIPPABLE_BUILD_NUMBER.zip "s3://$BUILD_ARTIFACT_BUCKET/artifacts/$APP_STACK_NAME-$SHIPPABLE_BUILD_NUMBER.zip"
   post_ci:
