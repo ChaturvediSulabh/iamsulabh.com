@@ -15,7 +15,6 @@ build:
   pre_ci:
     - echo "Starting the build"
   ci:
-    - cd portfolio
     - npm run webpack
     - zip -r build-$SHIPPABLE_BUILD_NUMBER.zip dist/bundle.js
   on_sucess:

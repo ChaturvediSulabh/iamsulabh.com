@@ -1,25 +1,45 @@
 {
   "name": "iamsulabh.com",
   "version": "1.0.0",
-  "description": "Sulabh Chaturvedi Portfolio Website",
+  "description": "my portfolio website",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "webpack": "webpack",
+    "webpack-watch": "webpack --watch"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ChaturvediSulabh/iamsulabh.com.git"
+    "url": "git+ssh://git@github.com/ChaturvediSulabh/iamsulabh.com.git"
   },
   "keywords": [
-    "node",
+    "portfolio",
     "react",
-    "aws",
-    "lambda"
+    "nodejs",
+    "babel",
+    "chai",
+    "mocha"
   ],
   "author": "Sulabh Chaturvedi",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/ChaturvediSulabh/iamsulabh.com/issues"
   },
-  "homepage": "https://github.com/ChaturvediSulabh/iamsulabh.com#readme"
+  "homepage": "https://github.com/ChaturvediSulabh/iamsulabh.com#readme",
+  "dependencies": {
+    "babel-standalone": "^6.26.0",
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0",
+    "path": "^0.12.7",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "recat": "0.0.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "babel-preset-react": "^6.24.1",
+    "webpack": "^4.2.0",
+    "webpack-cli": "^2.0.13"
+  }
 }
