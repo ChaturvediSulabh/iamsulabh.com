@@ -1,4 +1,4 @@
-language: node_js  # Manadatory Tag, setting it to None any default language specific processing
+language: node_js  #Manadatory Tag, setting it to None any default language specific processing
 node_js:
   - 7.0.0
 branches:
@@ -6,6 +6,7 @@ branches:
     - master
 before_install:
   - npm install -g npm@next
+  - npm install
 env:
   global:
     - secure: eigkfQorwbF1NO9Wet586dpiV+jpSQC/IKxTnyFTFOatCVCXLYBPxfjoEqD7Oy8GsBoW47VBLBezum4Dx2bXFtqQ6/H46i+T/PzWKTDKF1CocEGe90O18aqjW7md5Et8jyXeJVpFzV4BaCkzeaDSGjj/uWMl9FC8QxYUXLHW4kKmAkAmf07cWmbpSDos9lRKJZlrWZZvk9GetBj/o5O+PgwAArMauOV4lGBeTQv8d2Z+G+2OsMrzI3cUVpZRKx4xle/Uy6UhOfEGx9DMmapR63V+FU3Zs4ChVpUC96QBW0G80N2DUoSMkxgrwd8YYr69Jiys+F7gsDsX5ZXrDExzJw==
@@ -14,9 +15,8 @@ build:
   pre_ci:
     - echo "Starting the build"
   ci:
-    - npm start
-    - npm run build
-    - zip -r build-$SHIPPABLE_BUILD_NUMBER.zip dist/ server.js
+    - portfolio/npm run webpack
+    - zip -r build-$SHIPPABLE_BUILD_NUMBER.zip portfolio/dist/bundle.js
   on_sucess:
     - aws s3 cp ./build-$SHIPPABLE_BUILD_NUMBER.zip "s3://$BUILD_ARTIFACT_BUCKET/artifacts/$APP_STACK_NAME-$SHIPPABLE_BUILD_NUMBER.zip"
   post_ci:
