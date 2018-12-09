@@ -27,6 +27,7 @@
   },
   "homepage": "https://github.com/ChaturvediSulabh/iamsulabh.com#readme",
   "dependencies": {
+    "acorn": "^6.0.4",
     "babel-standalone": "^6.26.0",
     "chai": "^4.2.0",
     "mocha": "^5.2.0",
