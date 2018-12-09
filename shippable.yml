@@ -1,4 +1,4 @@
-language: node_js  # Manadatory Tag, setting it to None any default language specific processing
+language: node_js  #Manadatory Tag, setting it to None any default language specific processing
 node_js:
   - 7.0.0
 branches:
